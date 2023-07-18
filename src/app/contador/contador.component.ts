@@ -8,9 +8,14 @@ import { Persona } from '../persona';
 })
 export class ContadorComponent {
 
-  persona:Persona = {
-    nombre: "Oscar Riojas",
-    edad: 44
-  };
+  numero: number = 1;
+
+  decrementar(){
+    this.numero--;
+  }
+
+  incrementar(){
+    this.numero++;
+  }
 
 }
