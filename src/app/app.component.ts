@@ -6,5 +6,5 @@ import { Component } from '@angular/core'; // decorador
   styleUrls: ['./app.component.css'] // css directamente se cambia la propiedad por "style"
 })
 export class AppComponent {
-  title = 'angular_curso';
+  title = 'Curso Angular';
 }
