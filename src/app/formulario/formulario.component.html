@@ -1,1 +1,5 @@
-<p>formulario works!</p>
+<input type="text" placeholder="Ingresa tu nombre" class="form-control" #name> <!--#name es para ver el contenido una variable de plantilla-->
+
+<button class="btn btn-primary mt-2" (click)="mostrar_en_consola(name.value)"> <!--mt-2 es el pading superior-->
+    Mostrar en consola
+</button>
