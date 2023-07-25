@@ -1,14 +1,17 @@
 <div class="card">
     <div class="card-body">
 
-        <form (ngSubmit)="procesar()">
+        <form (ngSubmit)="procesar()" #formContac="ngForm">
 
             <div class="mb-2">
                 <label class="form-label">
                     Nombre:
                 </label>
     
-                <input type="text" name="nombre" class="form-control" placeholder="Por favor ingrese un nombre" [(ngModel)]="persona.nombre">            
+                <input type="text" name="nombre" class="form-control" placeholder="Por favor ingrese un nombre" [(ngModel)]="persona.nombre" required #name="ngModel">            
+                <div class="alert alert-danger mt-2" [hidden]="name.valid || name.pristine">
+                    El nombre es obligatorio
+                </div>
             </div>
     
             <div class="mb-2">
@@ -16,10 +19,17 @@
                     Edad:
                 </label>
     
-                <input type="number" name="edad" class="form-control" placeholder="Por favor ingrese su edad" [(ngModel)]="persona.edad">
+                <input type="number" name="edad" class="form-control" placeholder="Por favor ingrese su edad" [(ngModel)]="persona.edad" required #edad="ngModel">
+                <div class="alert alert-danger mt-2" [hidden]="edad.valid || edad.pristine">
+                    La edad es obligatoria
+                </div>
             </div>
 
-            <button class="btn btn-primary mb-2">
+            <!--<button class="btn btn-primary mb-2" [disabled]="name.invalid || edad.invalid">
+                Enviar
+            </button>-->
+
+            <button class="btn btn-primary mb-2" [disabled]="formContac.invalid">
                 Enviar
             </button>
 
@@ -28,4 +38,8 @@
     </div>
 </div>
 
-{{ persona | json}}
+{{ name.errors | json }} <!--muestra las reglas de validación qeu no se cumplen-->
+
+
+
+{{ formContac.status }}
