@@ -6,6 +6,11 @@
                     Nombre
                 </label>
                 <input type="text" [formControl]=name class="form-control" placeholder="Por favor ingrese su nombre">
+
+                <div class="alert alert-danger mt-2" [hidden]="name.valid || name.pristine">
+                    Campo requerido
+                </div>
+
             </div>
 
             <div class="mb-2">
@@ -15,6 +20,16 @@
                 <input type="email" [formControl]=email class="form-control" placeholder="Por favor ingrese su email">
             </div>
 
+                <div class="alert alert-danger mt-2" [hidden]="email.valid || email.pristine">
+                    <span *ngIf="email.errors?.['required']"> <!--?. es para que si el campo no existe lo ignore-->
+                        Campo requerido
+                    </span>
+
+                    <span *ngIf="email.errors?.['email']">
+                        El email debe ser valido
+                    </span>
+                </div>
+
             <button class="btn btn-primary">
                 Enviar
             </button>
@@ -22,8 +37,10 @@
     </div>
 </div>
 
-{{ name.value }}
+<!--{{ name.value }}
 
 <br>
 
 {{ email.value }}
+
+{{ email.errors | json }}-->

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario3',
@@ -9,7 +9,9 @@ import { FormControl } from '@angular/forms';
 export class Formulario3Component {
 
   // para sincronizar el valor con el front
-  name = new FormControl("Ingrese su nombre");  
-  email = new FormControl("Ingrese su email");
+  name = new FormControl("", Validators.required);  
+  email = new FormControl("", [Validators.required, Validators.email]);
+
+
 
 }
