@@ -1,3 +1,2 @@
-{{ title }}
-
-<input type="text" class="form-control" [(ngModel)]="title">
+<h2>Componente Hijo</h2>
+<input type="text" class="form-control" (keyup)="emitTitleChange()" [(ngModel)]="title">
